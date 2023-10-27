@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RNNoise.NET", "RNNoise.NET.csproj", "{D3C4B965-7FA6-4868-8D2C-2771D5BF434A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "..\Testing\Testing.csproj", "{1226E80E-307A-482A-8409-A24882EE808C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3C4B965-7FA6-4868-8D2C-2771D5BF434A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3C4B965-7FA6-4868-8D2C-2771D5BF434A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3C4B965-7FA6-4868-8D2C-2771D5BF434A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3C4B965-7FA6-4868-8D2C-2771D5BF434A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1226E80E-307A-482A-8409-A24882EE808C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1226E80E-307A-482A-8409-A24882EE808C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1226E80E-307A-482A-8409-A24882EE808C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1226E80E-307A-482A-8409-A24882EE808C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69EB886F-9967-49FB-B8C9-86BF2E12F6ED}
+	EndGlobalSection
+EndGlobal
