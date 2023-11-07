@@ -1,4 +1,4 @@
-# RNNoise.NET
+﻿# RNNoise.NET
 .NET Wrapper for the RNNoise supression library:
 - https://jmvalin.ca/demo/rnnoise/
 - https://github.com/xiph/rnnoise

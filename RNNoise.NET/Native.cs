@@ -22,7 +22,7 @@ namespace RNNoise.NET
 
         [DllImport(LIBRARY_NAME)]
         public static extern void rnnoise_destroy(IntPtr state);
-        
+
         [DllImport(LIBRARY_NAME)]
         public static extern unsafe float rnnoise_process_frame(IntPtr state, float* dataOut, float* dataIn);
 
