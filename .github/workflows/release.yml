@@ -16,9 +16,8 @@ jobs:
     - name: Get version
       run: |
         echo "Building with ${{ env.VERSION }}"
-    - name: Build
-      working-directory: ./RNNoise.NET
+    - name: Build & Push
       run: |
-        dotnet build --configuration Release RNNoise.NET.csproj -p:Version=${{ env.VERSION }}
-        dotnet pack --output nupkgs --configuration Release RNNoise.NET.csproj -p:Version=${{ env.VERSION }}
-        dotnet nuget push ./nupkgs/*.nupkg -k ${{ secrets.NUGET_TOKEN }}  --source https://api.nuget.org/v3/index.json
+        dotnet build --configuration Release ./RNNoise.NET/RNNoise.NET.csproj -p:Version=${{ env.VERSION }}
+        dotnet pack --output nupkgs --configuration Release ./RNNoise.NET/RNNoise.NET.csproj -p:Version=${{ env.VERSION }}
+        dotnet nuget push .\nupkgs\*.nupkg -k ${{ secrets.NUGET_TOKEN }}  --source https://api.nuget.org/v3/index.json
