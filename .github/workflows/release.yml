@@ -21,7 +21,4 @@ jobs:
       run: |
         dotnet build --configuration Release RNNoise.NET.csproj -p:Version=${{ env.VERSION }}
         dotnet pack --output nupkgs --configuration Release RNNoise.NET.csproj -p:Version=${{ env.VERSION }}
-    - name: Publish to NuGet
-      working-directory: ./RNNoise.NET
-      run: |
         dotnet nuget push nupkgs/*.nupkg -k ${{ secrets.NUGET_TOKEN }}  --source https://api.nuget.org/v3/index.json
