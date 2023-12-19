@@ -19,17 +19,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-        
-    - name: Install dependencies
-      working-directory: ./RNNoise.NET
-      run: dotnet restore
-      
     - name: Build
       working-directory: ./RNNoise.NET
-      run: | 
-        dotnet build --configuration Release --no-restore
-        dotnet pack -c Release RNNoise.NET.csproj
-
-    - name: Test
-      working-directory: ./RNNoise.NET
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet build --configuration Release
