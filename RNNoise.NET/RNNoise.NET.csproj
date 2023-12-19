@@ -2,9 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageId>YellowDogMan.RNNoise.Net</PackageId>
+    <PackageId>YellowDogMan.RNNoise.NET</PackageId>
     <Description>.NET Wrapper for the RNNoise supression library.</Description>
     <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
     <Authors>Yellow Dog Man Studios</Authors>
@@ -13,6 +12,8 @@
     <RepositoryUrl>https://github.com/Yellow-Dog-Man/RNNoise.Net</RepositoryUrl>
     <PackageProjectURL>https://github.com/Yellow-Dog-Man/RNNoise.Net</PackageProjectURL>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <NuspecFile>RNNoise.NET.nuspec</NuspecFile>
+    <NuspecProperties>version=$(Version)</NuspecProperties>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -26,7 +27,7 @@
   <ItemGroup>
     <PackageReference Include="System.Memory" Version="4.5.4" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <None Include="../LICENSE" Pack="true" PackagePath="\"/>
     <None Include="../README.md" Pack="true" PackagePath="\" />
