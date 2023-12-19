@@ -16,16 +16,11 @@ jobs:
     - name: Get version
       run: |
         echo "Building with ${{ env.VERSION }}"
-
-    - name: Install dependencies
-      working-directory: ./RNNoise.NET
-      run: dotnet restore
-
     - name: Build
       working-directory: ./RNNoise.NET
       run: |
-        dotnet build --configuration Release --no-restore -p:Version=${{ env.VERSION }}
-        dotnet pack --output nupkgs --configuration Release .\RNNoise.NET\RNNoise.NET.csproj -p:Version=${{ env.VERSION }}
+        dotnet build --configuration Release RNNoise.NET.csproj -p:Version=${{ env.VERSION }}
+        dotnet pack --output nupkgs --configuration Release RNNoise.NET.csproj -p:Version=${{ env.VERSION }}
     - name: Publish to NuGet
       working-directory: ./RNNoise.NET
       run: |
