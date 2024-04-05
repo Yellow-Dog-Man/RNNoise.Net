@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34707.107
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RNNoise.NET", "RNNoise.NET.csproj", "{D3C4B965-7FA6-4868-8D2C-2771D5BF434A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RNNoise.NET", "RNNoise.NET.csproj", "{D3C4B965-7FA6-4868-8D2C-2771D5BF434A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "..\Testing\Testing.csproj", "{1226E80E-307A-482A-8409-A24882EE808C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "..\Testing\Testing.csproj", "{1226E80E-307A-482A-8409-A24882EE808C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingNet8", "..\Testing\TestingNet8.csproj", "{8A8A3B41-8237-4317-9F6E-FA9C2AD784BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1226E80E-307A-482A-8409-A24882EE808C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1226E80E-307A-482A-8409-A24882EE808C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1226E80E-307A-482A-8409-A24882EE808C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A8A3B41-8237-4317-9F6E-FA9C2AD784BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A8A3B41-8237-4317-9F6E-FA9C2AD784BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A8A3B41-8237-4317-9F6E-FA9C2AD784BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A8A3B41-8237-4317-9F6E-FA9C2AD784BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
