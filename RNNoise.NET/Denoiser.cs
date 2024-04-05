@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RNNoise.NET
 {
-    public class Denoiser : IDisposable
+    public sealed class Denoiser : IDisposable
     {
         IntPtr state;
 
         float[] processingBuffer;
         int processingBufferDataStart;
 
-        float[] processedData;
+        readonly float[] processedData;
         int processedDataRemaining;
 
-        public Denoiser()
+        public Denoiser(DenoiseModel model = null)
         {
-            state = Native.rnnoise_create(IntPtr.Zero);
-
+            state = Native.rnnoise_create(model?.NativeInstance ?? IntPtr.Zero);
+            
             processingBuffer = new float[Native.FRAME_SIZE];
             processedData = new float[Native.FRAME_SIZE];
         }
