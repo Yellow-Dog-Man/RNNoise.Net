@@ -14,13 +14,6 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <NuspecFile>RNNoise.NET.nuspec</NuspecFile>
     <NuspecProperties>version=$(Version)</NuspecProperties>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
@@ -33,10 +26,24 @@
     <None Include="../README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="rnnoise.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+  <PropertyGroup>
+		<IsWindows Condition="$([MSBuild]::IsOSPlatform('Windows'))">true</IsWindows>
+		<IsLinux Condition="$([MSBuild]::IsOSPlatform('Linux'))">true</IsLinux>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Windows -->
+		<Content Include="native/windows-x86_64/rnnoise.dll" Condition="'$(IsWindows)' == 'true'">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Link>rnnoise.dll</Link>
+		</Content>
+
+		<!-- Linux -->
+		<Content Include="native/linux-x86_64/librnnoise.so" Condition="'$(IsLinux)' == 'true'">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Link>librnnoise.so</Link>
+		</Content>
+
+	</ItemGroup>
 
 </Project>
