@@ -8,5 +8,4 @@
   <ItemGroup>
     <ProjectReference Include="..\RNNoise.NET\RNNoise.NET.csproj" />
   </ItemGroup>
-
 </Project>
