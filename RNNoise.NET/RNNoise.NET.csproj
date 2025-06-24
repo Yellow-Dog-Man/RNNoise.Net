@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="../LICENSE" Pack="true" PackagePath="/" />
-    <None Include="../README.md" Pack="true" PackagePath="/" />
+    <None Include="..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <PropertyGroup Condition="$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == 'X64'">
@@ -31,16 +31,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="native/win-x64/**" Visible="false">
+    <Content Include="native\win-x64\**" Visible="false">
       <CopyToOutputDirectory Condition="$([MSBuild]::IsOSPlatform('Windows')) AND $(IsX64) == 'true'">PreserveNewest</CopyToOutputDirectory>
-      <PackagePath>runtimes/win-x64/native</PackagePath>
+      <PackagePath>runtimes\win-x64\native</PackagePath>
       <Pack>True</Pack>
       <Link>%(Filename)%(Extension)</Link>
     </Content>
 
-    <Content Include="native/linux-x64/**" Visible="false">
+    <Content Include="native\linux-x64\**" Visible="false">
       <CopyToOutputDirectory Condition="$([MSBuild]::IsOSPlatform('Linux')) AND $(IsX64) == 'true'">PreserveNewest</CopyToOutputDirectory>
-      <PackagePath>runtimes/linux-x64/native</PackagePath>
+      <PackagePath>runtimes\linux-x64\native</PackagePath>
       <Pack>True</Pack>
       <Link>%(Filename)%(Extension)</Link>
     </Content>
