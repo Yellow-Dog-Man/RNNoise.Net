@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RNNoise.NET
 {
@@ -26,8 +24,8 @@ namespace RNNoise.NET
         {
             int count = 0;
 
-            fixed(float* processingPtr = &processingBuffer[0])
-            fixed(float* bufferPtr = buffer)
+            fixed (float* processingPtr = &processingBuffer[0])
+            fixed (float* bufferPtr = buffer)
             {
                 while (buffer.Length > 0 || processingBufferDataStart == Native.FRAME_SIZE)
                 {
@@ -72,9 +70,9 @@ namespace RNNoise.NET
 
                         processing = processing.Slice(sourceSlice.Length);
 
-                        if(processing.Length == 0 || finish)
+                        if (processing.Length == 0 || finish)
                         {
-                            if(processing.Length > 0)
+                            if (processing.Length > 0)
                                 processing.Fill(0);
 
                             for (int i = 0; i < Native.FRAME_SIZE; i++)

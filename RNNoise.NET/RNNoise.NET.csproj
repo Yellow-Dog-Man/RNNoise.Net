@@ -1,10 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageId>YellowDogMan.RNNoise.NET</PackageId>
+    <PackageVersion>$(Version)</PackageVersion>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <Description>.NET Wrapper for the RNNoise supression library.</Description>
+    <Copyright>Yellow Dog Man Studios S.r.o. 2023</Copyright>
     <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
     <Authors>Yellow Dog Man Studios</Authors>
     <RepositoryType>git</RepositoryType>
@@ -12,15 +14,6 @@
     <RepositoryUrl>https://github.com/Yellow-Dog-Man/RNNoise.Net</RepositoryUrl>
     <PackageProjectURL>https://github.com/Yellow-Dog-Man/RNNoise.Net</PackageProjectURL>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <NuspecFile>RNNoise.NET.nuspec</NuspecFile>
-    <NuspecProperties>version=$(Version)</NuspecProperties>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
@@ -29,14 +22,27 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="../LICENSE" Pack="true" PackagePath="\"/>
-    <None Include="../README.md" Pack="true" PackagePath="\" />
+    <None Include="..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
+
+  <PropertyGroup Condition="$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture) == 'X64'">
+    <IsX64>true</IsX64>
+  </PropertyGroup>
 
   <ItemGroup>
-    <None Update="rnnoise.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+    <Content Include="native\win-x64\**" Visible="false">
+      <CopyToOutputDirectory Condition="$([MSBuild]::IsOSPlatform('Windows')) AND $(IsX64) == 'true'">PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>runtimes\win-x64\native</PackagePath>
+      <Pack>True</Pack>
+      <Link>%(Filename)%(Extension)</Link>
+    </Content>
 
+    <Content Include="native\linux-x64\**" Visible="false">
+      <CopyToOutputDirectory Condition="$([MSBuild]::IsOSPlatform('Linux')) AND $(IsX64) == 'true'">PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>runtimes\linux-x64\native</PackagePath>
+      <Pack>True</Pack>
+      <Link>%(Filename)%(Extension)</Link>
+    </Content>
+  </ItemGroup>
 </Project>
